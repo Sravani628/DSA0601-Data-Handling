@@ -1,0 +1,27 @@
+student <- c("S1","S2","S3","S4","S5","S6","S7","S8","S9","S10")
+
+marks <- matrix(c(
+92,88,84,95,81,
+76,72,69,80,74,
+81,78,83,85,79,
+65,70,68,72,75,
+90,94,91,96,89,
+58,62,60,65,70,
+84,86,82,88,80,
+71,75,73,77,72,
+95,91,93,98,94,
+79,81,77,83,78
+), nrow=10, byrow=TRUE)
+
+colnames(marks) <- c("Mathematics","Physics","Chemistry","Programming","English")
+rownames(marks) <- student
+
+heatmap(marks, Rowv=NA, Colv=NA, scale="none", col=heat.colors(10))
+
+student_avg <- rowMeans(marks)
+subject_avg <- colMeans(marks)
+
+cat("Highest Overall Performer:", names(which.max(student_avg)), "\n")
+cat("Highest Average Subject:", names(which.max(subject_avg)), "\n")
+cat("Students Needing Support:\n")
+print(names(student_avg[student_avg < 70]))

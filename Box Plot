@@ -1,0 +1,16 @@
+salary <- data.frame(
+HR=c(4.2,4.5,4.7,4.1,4.6,4.3,4.8,4.4,4.9,4.5),
+IT=c(6.5,7.0,7.4,6.8,8.2,7.6,8.5,7.1,8.8,7.3),
+Finance=c(5.8,6.2,6.0,5.9,6.7,6.4,6.9,6.1,7.2,6.3),
+Marketing=c(5.1,5.3,5.5,5.4,5.8,5.6,5.9,5.2,6.0,5.4)
+)
+
+vioplot::vioplot(salary$HR,salary$IT,salary$Finance,salary$Marketing,
+names=c("HR","IT","Finance","Marketing"))
+
+boxplot(salary,
+main="Employee Salary",
+col="lightblue")
+
+cat("Largest Variation:",names(which.max(apply(salary,2,sd))),"\n")
+cat("Highest Median:",names(which.max(apply(salary,2,median))),"\n")

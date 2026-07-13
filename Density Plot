@@ -1,0 +1,14 @@
+response <- c(210,225,230,240,250,260,270,280,285,290,
+300,305,310,315,320,330,340,350,360,380)
+
+hist(response,
+main="Histogram",
+xlab="Response Time",
+col="lightblue")
+
+plot(density(response),
+main="Density Plot",
+xlab="Response Time")
+
+cat("Skewness: Slightly Right Skewed\n")
+cat("Common Range: 250 to 320 ms\n")

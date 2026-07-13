@@ -1,0 +1,21 @@
+steps <- data.frame(
+Age20_30=c(9500,10200,9800,11000,10500,9700,10100,10800,11200,9900),
+Age31_45=c(8200,8600,8400,9000,8900,8500,8700,9100,9200,8600),
+Age46_60=c(6500,6700,6900,7200,7000,6800,7100,7300,7400,6950)
+)
+
+hist(steps$Age20_30,main="20-30",col="lightblue")
+hist(steps$Age31_45,main="31-45",col="lightgreen")
+hist(steps$Age46_60,main="46-60",col="lightpink")
+
+plot(density(steps$Age20_30),main="Density 20-30")
+plot(density(steps$Age31_45),main="Density 31-45")
+plot(density(steps$Age46_60),main="Density 46-60")
+
+boxplot(steps,
+main="Daily Steps",
+col=c("lightblue","lightgreen","lightpink"))
+
+median_values <- apply(steps,2,median)
+
+cat("Highest Median Group:",names(which.max(median_values)))
